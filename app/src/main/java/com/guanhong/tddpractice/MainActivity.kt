@@ -2,9 +2,6 @@ package com.guanhong.tddpractice
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-
-const val TAG = "Huang"
 
 class MainActivity : AppCompatActivity() {
 
@@ -16,6 +13,7 @@ class MainActivity : AppCompatActivity() {
         val umbrella = Umbrella()
         val test = umbrella.totalPrice(weather, 5, 600)
 
-        Log.d(TAG, " test " + test)
+        val expected = Math().binaryTransToDecimal("101")
+
     }
 }

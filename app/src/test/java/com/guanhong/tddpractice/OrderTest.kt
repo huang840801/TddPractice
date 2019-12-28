@@ -1,7 +1,7 @@
 package com.guanhong.tddpractice
 
-import org.junit.Assert.*
 import org.junit.Test
+import org.mockito.Mockito.*
 
 class OrderTest {
 
@@ -9,12 +9,13 @@ class OrderTest {
     fun testInsertOrder() {
 
         val order = Order()
-        val stubEmailUtil = StubEmailUtil()
+
+        val mockEmailUtil = mock(IEmailUtil::class.java)
 
         val testEmail = "test@gmail.com"
 
-        order.insertOrder(testEmail, 3, 600, stubEmailUtil)
+        order.insertOrder(testEmail, 3, 600, mockEmailUtil)
 
-        assertEquals(testEmail, stubEmailUtil.receiveEmail)
+        verify(mockEmailUtil).sendCustomer(testEmail)
     }
 }

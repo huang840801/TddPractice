@@ -12,6 +12,5 @@ class MainActivity : AppCompatActivity() {
         val weather: IWeather = Weather()
         val umbrella = Umbrella()
         val test = umbrella.totalPrice(weather, 5, 600)
-
     }
 }

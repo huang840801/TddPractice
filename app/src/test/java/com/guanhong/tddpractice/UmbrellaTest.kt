@@ -2,6 +2,8 @@ package com.guanhong.tddpractice
 
 import org.junit.Assert.*
 import org.junit.Test
+import org.mockito.Mockito.`when`
+import org.mockito.Mockito.mock
 
 class UmbrellaTest{
 
@@ -9,11 +11,11 @@ class UmbrellaTest{
     fun totalPrice_sunnyDay() {
 
         val umbrella = Umbrella()
-        val stubWeather = StubWeather()
+        val weather = mock(IWeather::class.java)
 
-        stubWeather.fakeIsSunny = true
+        `when`(weather.isSunny()).thenReturn(true)
 
-        val actual = umbrella.totalPrice(stubWeather, 4, 500)
+        val actual = umbrella.totalPrice(weather, 4, 500)
         val expect = 1800
 
         assertEquals(expect, actual)

@@ -79,4 +79,9 @@ class Math {
         answer = "" + (temp % 2) + answer
         return answer
     }
+
+    fun sortArrayMaxToMin(list: IntArray): IntArray {
+
+        return list.sortedDescending().toIntArray()
+    }
 }

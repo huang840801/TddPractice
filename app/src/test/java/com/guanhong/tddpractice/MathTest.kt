@@ -16,7 +16,7 @@ class MathTest {
     }
 
     @Test
-    fun findComplement() {
+    fun testFindComplement() {
 
         val expected = math.findComplement(5)
         val actual = 2
@@ -25,7 +25,7 @@ class MathTest {
     }
 
     @Test
-    fun binaryTransToDecimal() {
+    fun testBinaryTransToDecimal() {
 
         val expected = math.binaryTransToDecimal("1000")
         val actual = 8
@@ -34,7 +34,7 @@ class MathTest {
     }
 
     @Test
-    fun calculateRoot() {
+    fun testCalculateRoot() {
 
         val actual = math.calculateRoot(2, 2)
         val expected = 4
@@ -43,7 +43,7 @@ class MathTest {
     }
 
     @Test
-    fun decimalTransToBinary() {
+    fun testDecimalTransToBinary() {
 
         val actual = math.decimalTransToBinary(5)
         val expected = "101"
@@ -52,7 +52,7 @@ class MathTest {
     }
 
     @Test
-    fun addTwoNum() {
+    fun testAddTwoNum() {
 
         val actual = math.addTwoNum(1, 3)
         val expected = 4
@@ -76,5 +76,14 @@ class MathTest {
         val expected = 7
 
         assertEquals(expected, actual)
+    }
+
+    @Test
+    fun testSortArrayMinToMax() {
+
+        val actual = math.sortArrayMaxToMin(intArrayOf(6, 5, 8, 2, 2, 4))
+        val expected = intArrayOf(8, 6, 5, 4, 2, 2)
+
+        assertArrayEquals(expected, actual)
     }
 }

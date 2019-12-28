@@ -13,7 +13,5 @@ class MainActivity : AppCompatActivity() {
         val umbrella = Umbrella()
         val test = umbrella.totalPrice(weather, 5, 600)
 
-        val expected = Math().binaryTransToDecimal("101")
-
     }
 }

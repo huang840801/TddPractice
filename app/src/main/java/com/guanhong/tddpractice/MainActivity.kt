@@ -1,5 +1,6 @@
 package com.guanhong.tddpractice
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -15,9 +16,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-       val aa =  LeetCode().selfDividingNumbers(1,4)
+        val aa = LeetCode().selfDividingNumbers(1, 4)
 
-        Log.d("Huang"," answer "+ aa)
+        Log.d("Huang", " answer " + aa)
 
         sharedPreferenceManager = SharedPreferenceManager(this)
 
@@ -28,15 +29,15 @@ class MainActivity : AppCompatActivity() {
             val isAccountCorrect = RegisterVerify().isAccountCorrect(account.text.toString())
             val isPasswordCorrect = RegisterVerify().isPasswordCorrect(password.text.toString())
 
-            val message = if (isAccountCorrect && isPasswordCorrect) {
+            if (isAccountCorrect && isPasswordCorrect) {
 
                 repository.saveUserAccount(account.text.toString())
 
-                "註冊成功"
+                startActivity(Intent(this, RegisterSuccessActivity::class.java))
             } else {
-                "註冊失敗"
+
+                Toast.makeText(this, "註冊失敗", Toast.LENGTH_SHORT).show()
             }
-            Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
         }
     }
 }

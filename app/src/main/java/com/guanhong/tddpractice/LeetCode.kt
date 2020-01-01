@@ -43,9 +43,9 @@ class LeetCode {
             }
         )
 
-        for (i in unsortedSubarrayFirstIndex until unsortedSubarrayLastIndex) {
+        for ((index, i) in (unsortedSubarrayFirstIndex..unsortedSubarrayLastIndex).withIndex()) {
 
-            intArray[i - 1] = nums[i]
+            intArray[index] = nums[i]
         }
 
         return findUnsortedSubarray(intArray)
@@ -165,5 +165,46 @@ class LeetCode {
         }
 
         return intArray
+    }
+
+    /**
+     * 728
+     */
+    fun selfDividingNumbers(left: Int, right: Int): List<Int> {
+
+        val answerList = mutableListOf<Int>()
+
+        for (num in left..right) {
+
+            if (num > 0) {
+
+                val numToString = num.toString()
+                var isSelfDividingNumber = true
+
+                for (char in numToString) {
+
+                    val charToInt = char.toInt() - 48
+
+                    if (charToInt == 0) {
+
+                        isSelfDividingNumber = false
+                        break
+                    }
+
+                    if (charToInt != 0 && num % charToInt != 0) {
+
+                        isSelfDividingNumber = false
+                        break
+                    }
+                }
+
+                if (isSelfDividingNumber) {
+
+                    answerList.add(num)
+                }
+            }
+        }
+
+        return answerList
     }
 }

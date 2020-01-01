@@ -15,15 +15,21 @@ class LeetCodeTest {
         leetCode = LeetCode()
     }
 
+    /**
+     * 581
+     */
     @Test
     fun testFindUnsortedSubarray() {
 
-        val actual = leetCode.findUnsortedSubarray(intArrayOf(0, 6, 0, 4, 7, 12))
+        val actual = leetCode.findUnsortedSubarray(intArrayOf(1, 2, 3, 4))
         val expected = 4
 
         assertEquals(expected, actual)
     }
 
+    /**
+     * 476
+     */
     @Test
     fun testFindComplement() {
 
@@ -43,15 +49,6 @@ class LeetCodeTest {
     }
 
     @Test
-    fun testCalculateRoot() {
-
-        val actual = leetCode.calculateRoot(2, 2)
-        val expected = 4
-
-        assertEquals(expected, actual)
-    }
-
-    @Test
     fun testDecimalTransToBinary() {
 
         val actual = leetCode.decimalTransToBinary(5)
@@ -61,10 +58,31 @@ class LeetCodeTest {
     }
 
     @Test
+    fun testCalculateRoot() {
+
+        val actual = leetCode.calculateRoot(2, 2)
+        val expected = 4
+
+        assertEquals(expected, actual)
+    }
+
+    /**
+     * 414
+     */
+    @Test
     fun testThirdMax() {
 
         val actual = leetCode.thirdMax(intArrayOf())
         val expected = 0
+
+        assertEquals(expected, actual)
+    }
+
+    @Test
+    fun testRecursiveThirdMax() {
+
+        val actual = leetCode.recursiveThirdMax(intArrayOf(4, 5, 7, 2, 1), 0)
+        val expected = 4
 
         assertEquals(expected, actual)
     }
@@ -76,5 +94,17 @@ class LeetCodeTest {
         val expected = intArrayOf(2, 9, 6)
 
         assertArrayEquals(expected, actual)
+    }
+
+    /**
+     * 728
+     */
+    @Test
+    fun testSelfDividingNumbers() {
+
+        val actual = leetCode.selfDividingNumbers(1, 1)
+        val expected = listOf(1)
+
+        assertArrayEquals(expected.toIntArray(), actual.toIntArray())
     }
 }

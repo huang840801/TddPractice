@@ -23,13 +23,24 @@ class RegisterTest {
     @Test
     fun register_success_should_start_RegisterSuccessActivity() {
 
-        onView(withId(R.id.account)).perform(typeText("q1111111"), ViewActions.closeSoftKeyboard())
-        onView(withId(R.id.password)).perform(
-            typeText("w22222222"),
-            ViewActions.closeSoftKeyboard()
-        )
-        onView(withId(R.id.registerButton)).perform(click())
+        inputCorrectRegisterData()
 
+        clickRegisterButton()
+
+        seeRegisterSuccessView()
+    }
+
+    @Test
+    fun register_fail_should_see_fail_view() {
+
+        inputWrongRegisterData()
+
+        clickRegisterButton()
+
+        seeRegisterFailView()
+    }
+
+    private fun seeRegisterSuccessView() {
         onView(withId(R.id.successText)).check(matches(withText("Register Success")))
         onView(withId(R.id.successText)).check(matches(isDisplayed()))
 
@@ -37,5 +48,32 @@ class RegisterTest {
             .check(
                 matches(isDisplayed())
             )
+    }
+
+    private fun seeRegisterFailView() {
+        onView(withText("註冊失敗")).inRoot(withDecorView(not(activityTestRule.activity.window.decorView)))
+            .check(
+                matches(isDisplayed())
+            )
+    }
+
+    private fun inputWrongRegisterData() {
+        onView(withId(R.id.account)).perform(typeText("666"), ViewActions.closeSoftKeyboard())
+        onView(withId(R.id.password)).perform(
+            typeText("w22222222"),
+            ViewActions.closeSoftKeyboard()
+        )
+    }
+
+    private fun inputCorrectRegisterData() {
+        onView(withId(R.id.account)).perform(typeText("q1111111"), ViewActions.closeSoftKeyboard())
+        onView(withId(R.id.password)).perform(
+            typeText("w22222222"),
+            ViewActions.closeSoftKeyboard()
+        )
+    }
+
+    private fun clickRegisterButton() {
+        onView(withId(R.id.registerButton)).perform(click())
     }
 }

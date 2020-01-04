@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
+import tddpracticesample.Repository
 
 class MainActivity : AppCompatActivity() {
 
@@ -16,9 +17,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val aa = LeetCode().selfDividingNumbers(1, 4)
+        val aa = Repository().getResult()
+        val name = resources.getString(R.string.name)
 
-        Log.d("Huang", " answer " + aa)
+        Log.d("Huang", " repository " + aa)
+        Log.d("Huang", " name " + name)
 
         sharedPreferenceManager = SharedPreferenceManager(this)
 

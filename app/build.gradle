@@ -41,6 +41,24 @@ android {
         flavorDimensions "default"
     }
 
+    sourceSets {
+
+        String sharedTestDirect = 'src/sharedTest/java'
+        String fakeJsonDirect = 'src/sharedTest/fakejson'
+
+        test {
+
+            java.srcDir sharedTestDirect
+            resources.srcDirs += fakeJsonDirect
+        }
+
+        androidTest {
+
+            java.srcDir sharedTestDirect
+            resources.srcDirs += fakeJsonDirect
+        }
+    }
+
     testOptions.unitTests.includeAndroidResources = true
 }
 

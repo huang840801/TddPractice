@@ -259,4 +259,31 @@ class LeetCode {
 
         return intArrayOf(duplicateNumber, missnumber)
     }
+
+    /**
+     * 922
+     */
+    fun sortArrayByParityII(A: IntArray): IntArray {
+
+        val answerIntArray = IntArray(A.count())
+
+        var evenIndex = 0
+        var oddIndex = 1
+
+        for (element in A) {
+
+            if (element % 2 == 0) {
+
+                answerIntArray[evenIndex] = element
+                evenIndex += 2
+
+            } else {
+
+                answerIntArray[oddIndex] = element
+                oddIndex += 2
+            }
+        }
+
+        return answerIntArray
+    }
 }

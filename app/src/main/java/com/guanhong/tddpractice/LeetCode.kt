@@ -207,4 +207,25 @@ class LeetCode {
 
         return answerList
     }
+
+    /**
+     * 908
+     */
+    fun smallestRangeI(A: IntArray, K: Int): Int {
+
+        if (A.count() == 0) return 0
+
+        val max = A.max()!!
+        val min = A.min()!!
+
+        val newMin = min + K
+        val newMax = max - K
+
+        return if ((newMax - newMin) >= K) {
+
+            newMax - newMin
+        } else {
+            0
+        }
+    }
 }

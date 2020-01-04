@@ -228,4 +228,35 @@ class LeetCode {
             0
         }
     }
+
+    /**
+     * 645
+     */
+    fun findErrorNums(nums: IntArray): IntArray {
+
+        var missnumber = 0
+        var duplicateNumber = 0
+
+        val mutableMap = mutableMapOf<Int, Int>()
+
+        for (num in nums) {
+
+            if (mutableMap[num] != null) {
+                duplicateNumber = num
+            }
+
+            mutableMap[num] = num
+        }
+
+        for (i in 1..nums.count()) {
+
+            if (mutableMap[i] == null) {
+
+                missnumber = i
+                break
+            }
+        }
+
+        return intArrayOf(duplicateNumber, missnumber)
+    }
 }

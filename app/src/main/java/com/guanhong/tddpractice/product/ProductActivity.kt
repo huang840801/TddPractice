@@ -15,10 +15,7 @@ class ProductActivity : AppCompatActivity(), ProductContract.View {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_product)
 
-        val productRepository = ProductRepository(ProductApi())
-
-
-        presenter = ProductPresenter(this, productRepository)
+        presenter = ProductPresenter(this, ProductRepository(ProductApi()))
 
         presenter.getProduct()
     }

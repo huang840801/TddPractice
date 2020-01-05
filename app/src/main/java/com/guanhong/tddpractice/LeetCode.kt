@@ -3,6 +3,16 @@ package com.guanhong.tddpractice
 class LeetCode {
 
     /**
+     * test result
+     */
+    fun test(): Int {
+
+        val answer = 9 / 4
+
+        return answer
+    }
+
+    /**
      * 581
      */
     fun findUnsortedSubarray(nums: IntArray): Int {
@@ -285,5 +295,25 @@ class LeetCode {
         }
 
         return answerIntArray
+    }
+
+    /**
+     * 1287
+     */
+    fun findSpecialInteger(arr: IntArray): Int {
+
+        if (arr.count() == 1) return arr[0]
+
+        val specialCount = (arr.count() / 4)
+
+        for (i in 0 until arr.count()) {
+
+            if (arr[i] == arr[i + specialCount]) {
+
+                return arr[i]
+            }
+        }
+
+        return -1
     }
 }

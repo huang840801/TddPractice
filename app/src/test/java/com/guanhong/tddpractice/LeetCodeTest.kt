@@ -16,6 +16,18 @@ class LeetCodeTest {
     }
 
     /**
+     * test result
+     */
+
+    @Test
+    fun test(){
+
+        val expected = 4
+        val actual = leetCode.test()
+
+        assertEquals(expected, actual)
+    }
+    /**
      * 581
      */
     @Test

@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
+import com.guanhong.tddpractice.product.ProductActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import tddpracticesample.Repository
 
@@ -16,12 +17,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        val aa = Repository().getResult()
-        val name = resources.getString(R.string.name)
-
-        Log.d("Huang", " repository " + aa)
-        Log.d("Huang", " name " + name)
 
         sharedPreferenceManager = SharedPreferenceManager(this)
 
@@ -42,5 +37,7 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText(this, "註冊失敗", Toast.LENGTH_SHORT).show()
             }
         }
+
+        startActivity(Intent(this, ProductActivity::class.java))
     }
 }

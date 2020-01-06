@@ -316,4 +316,36 @@ class LeetCode {
 
         return -1
     }
+
+    /**
+     * 1221
+     */
+    fun balancedStringSplit(s: String): Int {
+
+        var answer = 0
+        var numberOfL = 0
+        var numberOfR = 0
+
+        for (element in s) {
+
+            if (element == 'R') {
+
+                numberOfR++
+
+            } else {
+
+                numberOfL++
+            }
+
+            if (numberOfR > 0 && numberOfR == numberOfL) {
+
+                numberOfL = 0
+                numberOfR = 0
+
+                answer++
+            }
+        }
+
+        return answer
+    }
 }

@@ -7,9 +7,11 @@ class LeetCode {
      */
     fun test(): Int {
 
-        val answer = 9 / 4
+        val answer = IntArray(6)
 
-        return answer
+        answer[1] = 2
+
+        return answer[1]
     }
 
     /**
@@ -347,5 +349,27 @@ class LeetCode {
         }
 
         return answer
+    }
+
+    /**
+     * 977
+     */
+    fun sortedSquares(A: IntArray): IntArray {
+
+        val answerIntArray = IntArray(A.count())
+
+        val positiveArray = A.map { it * it }.toIntArray()
+
+        for (i in 0 until A.count()) {
+
+            val max = positiveArray.max()!!
+            val indexOfMax = positiveArray.indexOf(max)
+
+            answerIntArray[A.count() - i - 1] = max
+
+            positiveArray[indexOfMax] = -1
+        }
+
+        return answerIntArray
     }
 }

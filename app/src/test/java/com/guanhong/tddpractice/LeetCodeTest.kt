@@ -20,13 +20,14 @@ class LeetCodeTest {
      */
 
     @Test
-    fun test(){
+    fun test() {
 
         val expected = 4
         val actual = leetCode.test()
 
         assertEquals(expected, actual)
     }
+
     /**
      * 581
      */
@@ -118,5 +119,17 @@ class LeetCodeTest {
         val expected = listOf(1)
 
         assertArrayEquals(expected.toIntArray(), actual.toIntArray())
+    }
+
+    /**
+     * 977
+     */
+    @Test
+    fun testSortedSquares() {
+
+        val actual = leetCode.sortedSquares(intArrayOf(-5))
+        val expected = intArrayOf(25)
+
+        assertArrayEquals(expected, actual)
     }
 }

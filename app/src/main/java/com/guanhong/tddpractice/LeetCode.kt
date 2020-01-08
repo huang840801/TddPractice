@@ -372,4 +372,22 @@ class LeetCode {
 
         return answerIntArray
     }
+
+    /**
+     * 867
+     */
+    fun transpose(A: Array<IntArray>): Array<IntArray> {
+
+        val answerArray = Array(A[0].count()) { IntArray(A.count()) }
+
+        A.forEachIndexed { index, ints ->
+
+            ints.forEachIndexed { index1, int ->
+
+                answerArray[index1][index] = int
+            }
+        }
+
+        return answerArray
+    }
 }

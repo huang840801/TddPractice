@@ -132,4 +132,16 @@ class LeetCodeTest {
 
         assertArrayEquals(expected, actual)
     }
+
+    /**
+     * 867
+     */
+    @Test
+    fun testTranspose() {
+
+        val actual = leetCode.transpose(arrayOf(intArrayOf(1, 2, 3), intArrayOf(4, 5, 6)))
+        val expected = arrayOf(intArrayOf(1, 4), intArrayOf(2, 5), intArrayOf(3, 6))
+
+        assertArrayEquals(expected, actual)
+    }
 }

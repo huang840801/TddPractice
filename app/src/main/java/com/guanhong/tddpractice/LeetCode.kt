@@ -390,4 +390,38 @@ class LeetCode {
 
         return answerArray
     }
+
+    /**
+     * 766
+     */
+    fun isToeplitzMatrix(matrix: Array<IntArray>): Boolean {
+
+        val mutableMap = mutableMapOf<Int, Int>()
+
+        matrix[0].forEachIndexed { index, i ->
+
+            mutableMap[index] = i
+        }
+
+        var nowIntArrayIndex = 0
+
+        matrix.forEachIndexed { index, intArray ->
+
+            nowIntArrayIndex = index
+
+            intArray.forEachIndexed { index1, i ->
+
+                if (index != 0 && index1 != 0 && i != mutableMap[index1 - 1]) {
+
+                    return false
+                }
+            }
+
+            matrix[nowIntArrayIndex].forEachIndexed { index, i ->
+
+                mutableMap[index] = i
+            }
+        }
+        return true
+    }
 }

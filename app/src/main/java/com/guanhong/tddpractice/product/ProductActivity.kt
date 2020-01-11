@@ -22,6 +22,5 @@ class ProductActivity : AppCompatActivity(), ProductContract.View {
 
     override fun onBindProduct(productList: List<Product>) {
 
-        Log.d("Huang"," productList "+productList)
     }
 }

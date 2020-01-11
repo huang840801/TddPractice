@@ -18,6 +18,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        val test = LeetCode().canConstruct("agb","bga")
+
+        Log.d("Huang"," aaa "+ test)
+
         sharedPreferenceManager = SharedPreferenceManager(this)
 
         repository = MainRepository(sharedPreferenceManager)

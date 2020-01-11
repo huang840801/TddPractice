@@ -7,11 +7,15 @@ class LeetCode {
      */
     fun test(): Int {
 
-        val answer = IntArray(6)
+        val magazine = "q"
 
-        answer[1] = 2
+        val answer = arrayOfNulls<String>(magazine.count())
 
-        return answer[1]
+        magazine.forEachIndexed { index, c ->
+
+            answer[index] = c.toString()
+        }
+        return answer.count()
     }
 
     /**
@@ -422,6 +426,36 @@ class LeetCode {
                 mutableMap[index] = i
             }
         }
+        return true
+    }
+
+    /**
+     * 383
+     */
+    fun canConstruct(ransomNote: String, magazine: String): Boolean {
+
+        val magazineArray = arrayOfNulls<String>(magazine.count())
+
+        magazine.forEachIndexed { index, c ->
+
+            magazineArray[index] = c.toString()
+        }
+
+        ransomNote.forEach { char ->
+
+            val ransomNoteElementInMagazineArray = magazineArray.firstOrNull { it == char.toString() }
+
+            if (ransomNoteElementInMagazineArray != null) {
+
+                val indexOfRansomNoteElementInMagazineArray = magazineArray.indexOf(ransomNoteElementInMagazineArray)
+
+                magazineArray[indexOfRansomNoteElementInMagazineArray] = " "
+
+            } else {
+                return false
+            }
+        }
+
         return true
     }
 }

@@ -8,14 +8,13 @@ import com.guanhong.tddpractice.product.repository.ProductRepository
 import org.junit.Before
 import org.junit.Test
 
-import org.mockito.ArgumentCaptor
 import org.mockito.Mock
 import org.mockito.Mockito
 import org.mockito.MockitoAnnotations
 
-class ProductPresenterTest {
+class ProductViewModelTest {
 
-    private lateinit var presenter: ProductPresenter
+    private lateinit var viewModel: ProductViewModel
 
     @Mock
     private lateinit var view: ProductContract.View
@@ -30,7 +29,7 @@ class ProductPresenterTest {
 
         MockitoAnnotations.initMocks(this)
 
-        presenter = ProductPresenter(view, repository)
+        viewModel = ProductViewModel(view, repository)
 
         productList.add(Product(111, "name1"))
         productList.add(Product(222, "name2"))
@@ -39,7 +38,7 @@ class ProductPresenterTest {
     @Test
     fun getProduct() {
 
-        presenter.getProduct()
+        viewModel.getProduct()
 
         val loadProductCallbackCaptor = argumentCaptor<IProductApi.ProductDataCallback>()
 

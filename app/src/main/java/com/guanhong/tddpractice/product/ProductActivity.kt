@@ -3,24 +3,26 @@ package com.guanhong.tddpractice.product
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 import com.guanhong.tddpractice.R
 import com.guanhong.tddpractice.product.api.ProductApi
 import com.guanhong.tddpractice.product.repository.ProductRepository
 
-class ProductActivity : AppCompatActivity(), ProductContract.View {
+class ProductActivity : AppCompatActivity() {
 
-    private lateinit var presenter: ProductPresenter
+    private lateinit var viewModel: ProductViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_product)
 
-        presenter = ProductPresenter(this, ProductRepository(ProductApi()))
+        val factory = ViewModelFactory(ProductRepository(ProductApi()))
 
-        presenter.getProduct()
-    }
+        viewModel = ViewModelProviders.of(this,factory).get(ProductViewModel::class.java)
 
-    override fun onBindProduct(productList: List<Product>) {
-
+        viewModel.productList.observe(this,
+            Observer<List<Product>> { productList -> Log.d("Huang"," productList "+productList) })
+        viewModel.getProduct()
     }
 }

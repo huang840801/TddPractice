@@ -1,19 +1,22 @@
 package com.guanhong.tddpractice.product
 
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 import com.guanhong.tddpractice.product.api.IProductApi
 import com.guanhong.tddpractice.product.repository.IProductRepository
 
-class ProductPresenter(
-    private val view: ProductContract.View,
+class ProductViewModel(
     private val repository: IProductRepository
-) : ProductContract.Presenter {
+) : ViewModel() {
 
-    override fun getProduct() {
+    val productList = MutableLiveData<List<Product>>()
+
+    fun getProduct() {
 
         repository.getProduct(object : IProductApi.ProductDataCallback {
             override fun onGetResult(productResponse: List<Product>) {
 
-                view.onBindProduct(productResponse)
+                productList.value = productResponse
             }
         })
     }

@@ -63,7 +63,11 @@ android {
 }
 
 dependencies {
-    testImplementation 'org.mockito:mockito-inline:2.13.0'
+
+    // ViewModel and LiveData
+    implementation "androidx.lifecycle:lifecycle-extensions:2.2.0-rc03"
+
+    testImplementation 'org.mockito:mockito-inline:2.21.0'
 
     testImplementation "org.robolectric:robolectric:4.3"
 

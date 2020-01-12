@@ -443,11 +443,13 @@ class LeetCode {
 
         ransomNote.forEach { char ->
 
-            val ransomNoteElementInMagazineArray = magazineArray.firstOrNull { it == char.toString() }
+            val ransomNoteElementInMagazineArray =
+                magazineArray.firstOrNull { it == char.toString() }
 
             if (ransomNoteElementInMagazineArray != null) {
 
-                val indexOfRansomNoteElementInMagazineArray = magazineArray.indexOf(ransomNoteElementInMagazineArray)
+                val indexOfRansomNoteElementInMagazineArray =
+                    magazineArray.indexOf(ransomNoteElementInMagazineArray)
 
                 magazineArray[indexOfRansomNoteElementInMagazineArray] = " "
 
@@ -457,5 +459,28 @@ class LeetCode {
         }
 
         return true
+    }
+
+    /**
+     * 268
+     */
+    fun missingNumber(nums: IntArray): Int {
+
+        val mutableMap = mutableMapOf<Int, Int>()
+
+        nums.forEach {
+
+            mutableMap[it] = it
+        }
+
+        for (i in 0 until nums.count()) {
+
+            if (mutableMap[i] == null) {
+
+                return i
+            }
+        }
+
+        return nums.count()
     }
 }

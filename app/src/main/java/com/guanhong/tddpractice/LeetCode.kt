@@ -1,5 +1,7 @@
 package com.guanhong.tddpractice
 
+import android.util.Log
+
 class LeetCode {
 
     /**
@@ -482,5 +484,66 @@ class LeetCode {
         }
 
         return nums.count()
+    }
+
+    /**
+     * 819
+     */
+    fun mostCommonWord(paragraph: String, banned: Array<String>): String {
+
+        var s = ""
+
+        val wordList = mutableListOf<String>()
+
+       val characterList = listOf('a', 'b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z')
+
+        paragraph.toLowerCase().forEach { c ->
+
+            if (characterList.any { it == c }) {
+
+                s += c
+            } else {
+
+                if (s.isNotEmpty()) {
+
+                    wordList.add(s)
+                    s = ""
+                }
+            }
+        }
+        if (s.isNotEmpty()) {
+
+            wordList.add(s)
+        }
+
+        val mutableMap = mutableMapOf<String, Int>()
+
+        wordList.forEach { word ->
+
+            if (!banned.any { it == word }) {
+
+                if (mutableMap[word] == null) {
+
+                    mutableMap[word] = 1
+                } else {
+                    mutableMap[word] = mutableMap[word]!! + 1
+                }
+            }
+        }
+
+        var answerValue = 0
+        var answer = ""
+
+
+        mutableMap.forEach {
+
+            if (it.value> answerValue) {
+
+                answerValue = it.value
+                answer = it.key
+            }
+        }
+
+        return answer
     }
 }

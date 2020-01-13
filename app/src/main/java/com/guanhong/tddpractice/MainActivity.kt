@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val test = LeetCode().canConstruct("agb","bga")
+        val test = LeetCode().mostCommonWord("Bob hit a ball, the hit BALL flew far after it was hit.", arrayOf("hit"))
 
         Log.d("Huang"," aaa "+ test)
 
@@ -42,6 +42,6 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        startActivity(Intent(this, ProductActivity::class.java))
+//        startActivity(Intent(this, ProductActivity::class.java))
     }
 }

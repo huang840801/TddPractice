@@ -5,9 +5,7 @@ import androidx.lifecycle.ViewModel
 import com.guanhong.tddpractice.product.api.IProductApi
 import com.guanhong.tddpractice.product.repository.IProductRepository
 
-class ProductViewModel(
-    private val repository: IProductRepository
-) : ViewModel() {
+class ProductViewModel(private val repository: IProductRepository) : ViewModel() {
 
     val productList = MutableLiveData<List<Product>>()
 

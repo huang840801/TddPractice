@@ -64,6 +64,9 @@ android {
 
 dependencies {
 
+    //ViewModel Test
+    testImplementation "android.arch.core:core-testing:1.1.1"
+
     // ViewModel and LiveData
     implementation "androidx.lifecycle:lifecycle-extensions:2.2.0-rc03"
 

@@ -64,6 +64,24 @@ android {
 
 dependencies {
 
+    // Koin for Kotlin
+    implementation "org.koin:koin-core:2.0.1"
+    // Koin extended & experimental features
+    implementation "org.koin:koin-core-ext:2.0.1"
+    // Koin for Unit tests
+    testImplementation "org.koin:koin-test:2.0.1"
+    // Koin for Java developers
+    implementation "org.koin:koin-java:2.0.1"
+
+    // Koin for Android
+    implementation "org.koin:koin-android:2.0.1"
+    // Koin Android Scope features
+    implementation "org.koin:koin-android-scope:2.0.1"
+    // Koin Android ViewModel features
+    implementation "org.koin:koin-android-viewmodel:2.0.1"
+    // Koin Android Experimental features
+    implementation "org.koin:koin-android-ext:2.0.1"
+
     //ViewModel Test
     testImplementation "android.arch.core:core-testing:1.1.1"
 
